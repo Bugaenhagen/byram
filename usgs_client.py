@@ -49,3 +49,9 @@ if __name__ == "__main__":
 
     #Write DataFrame to CSV - index=False omits row numbers from input.
     df.to_csv("idaStreamData.csv", index=False)
+
+    df = fetchStream("01212500", "2012-10-27", "2012-10-31")
+    df.to_csv(path_or_buf="sandyStreamData.csv", index=False)
+
+    df = fetchStream("01212500", "2023-09-27", "2023-10-01")
+    df.to_csv(path_or_buf="opheliaStreamData.csv", index=False)
