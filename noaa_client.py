@@ -55,10 +55,10 @@ def fetchTide(stationID, startDate, endDate, product, columnName):
 
     return df
 
-def buildTidalDataset(stormName, startDate, endDate):
-    df_tide = fetchTide("8516945", startDate, endDate, "water_level",
+def buildTidalDataset(stormName, stationID, startDate, endDate):
+    df_tide = fetchTide(stationID, startDate, endDate, "water_level",
                         columnName="recorded_wl_ft")
-    df_prediction = fetchTide("8516945", startDate, endDate, "predictions",
+    df_prediction = fetchTide(stationID, startDate, endDate, "predictions",
                               columnName="predicted_wl_ft")
     df_tide = df_tide.rename(columns={"sigma": "sigma_recorded", "quality": "quality_recorded",
                                       "flags": "flags_recorded"})
@@ -71,6 +71,14 @@ def buildTidalDataset(stormName, startDate, endDate):
 
 if __name__ == "__main__":
 
-    buildTidalDataset("sandy", "2012-10-27", "2012-10-31")
-    buildTidalDataset("ida", "2021-08-29", "2021-09-03")
-    buildTidalDataset("ophelia", "2023-09-27", "2023-10-01")
+    buildTidalDataset("kingsPointSandy","8516945","2012-10-27", "2012-10-31")
+    buildTidalDataset("kingsPointsIda","8516945","2021-08-29",
+                      "2021-09-03")
+    buildTidalDataset("kingsPointOphelia","8516945","2023-09-27",
+                      "2023-10-01")
+    buildTidalDataset("bridgeportSandy","8467150", "2012-10-27",
+                      "2012-10-31")
+    buildTidalDataset("bridgeportIda","8467150", "2021-08-29",
+                      "2021-09-03")
+    buildTidalDataset("bridgeportOphelia","8467150", "2023-09-27",
+                      "2023-10-01")
