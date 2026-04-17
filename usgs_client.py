@@ -56,6 +56,13 @@ def buildStormDataset(stormName, startDate, endDate):
     df_precip = df_precip.rename(columns={"qualifiers": "qualifiers_precip"})
     df_merged = pandas.merge(df_discharge, df_gauge, on="datetime")
     df_merged = pandas.merge(df_merged, df_precip, on="datetime")
+    df_merged["precip_1hr_in"] = df_merged["precipitation_in"].rolling(4).sum()
+    df_merged["date"] = pandas.to_datetime(df_merged["datetime"]).dt.date
+    daily_precip = df_merged.groupby("date")["precipitation_in"].sum().reset_index()
+    event_total = daily_precip["precipitation_in"].sum()
+    event_row = pandas.DataFrame([{"date":"event_total","precipitation_in":event_total}])
+    daily_precip = pandas.concat([daily_precip, event_row], ignore_index=True)
+    daily_precip.to_csv(stormName + "_precipSummary.csv", index=False)
     df_merged.to_csv(path_or_buf=stormName + "_streamData.csv", index=False)
 
 if __name__ == "__main__":

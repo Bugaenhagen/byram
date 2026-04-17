@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storm Peak Summary — Port Chester Yacht Club</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #1a1a1a;
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+  h1 { font-size: 18px; font-weight: 500; margin: 0 0 4px; }
+  .subtitle { font-size: 13px; color: #666; margin: 0 0 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 8px 12px; font-weight: 500;
+    font-size: 11px; color: #666; border-bottom: 1px solid #ccc;
+  }
+  th.num { text-align: right; }
+  td { padding: 10px 12px; border-bottom: 0.5px solid #e5e5e5; vertical-align: top; }
+  td.num { text-align: right; }
+  .section-header td {
+    background: #f5f5f5; font-size: 11px; font-weight: 500;
+    color: #666; letter-spacing: 0.05em; padding: 6px 12px;
+  }
+  .peak { font-weight: 500; color: #c0392b; }
+  .moderate { font-weight: 500; color: #d35400; }
+  .timestamp { font-size: 11px; color: #888; display: block; font-weight: 400; }
+  .badge { display: inline-block; font-size: 11px; padding: 3px 8px; border-radius: 4px; }
+  .badge-coastal { background: #e8f4fd; color: #1a5276; }
+  .badge-riverine { background: #fdecea; color: #922b21; }
+  .source { font-size: 12px; color: #888; }
+  .footer { font-size: 11px; color: #aaa; margin-top: 16px; }
+  @media print { body { margin: 20px; } }
+</style>
+</head>
+<body>
+
+<h1>Storm Peak Summary — Port Chester Yacht Club</h1>
+<p class="subtitle">Byram River Mouth, Port Chester NY &nbsp;|&nbsp; USGS Pemberwick + NOAA Kings Point &nbsp;|&nbsp; Delaware Engineering, D.P.C.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Source</th>
+      <th class="num">Hurricane Sandy<br><span style="font-weight:400;">Oct 29, 2012</span></th>
+      <th class="num">Hurricane Ida<br><span style="font-weight:400;">Sep 1, 2021</span></th>
+      <th class="num">TS Ophelia<br><span style="font-weight:400;">Sep 29, 2023</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="section-header"><td colspan="5">BYRAM RIVER — USGS PEMBERWICK GAUGE (01212500)</td></tr>
+    <tr>
+      <td>Peak discharge</td>
+      <td class="source">param 00060</td>
+      <td class="num">37.6 cfs<span class="timestamp">Oct 30 21:00</span></td>
+      <td class="num peak">2,750 cfs<span class="timestamp">Sep 1 23:15</span></td>
+      <td class="num peak">2,760 cfs<span class="timestamp">Sep 29 14:45</span></td>
+    </tr>
+    <tr>
+      <td>Peak gauge height</td>
+      <td class="source">param 00065</td>
+      <td class="num">2.41 ft<span class="timestamp">Oct 30 21:00</span></td>
+      <td class="num peak">7.05 ft<span class="timestamp">Sep 1 23:15</span></td>
+      <td class="num peak">6.71 ft<span class="timestamp">Sep 29 14:45</span></td>
+    </tr>
+    <tr>
+      <td>Peak 1-hr rainfall</td>
+      <td class="source">param 00045</td>
+      <td class="num">0.23 in<span class="timestamp">Oct 29 17:30</span></td>
+      <td class="num peak">4.11 in<span class="timestamp">Sep 1 22:45</span></td>
+      <td class="num moderate">1.34 in<span class="timestamp">Sep 29 10:15</span></td>
+    </tr>
+    <tr>
+      <td>Total event rainfall</td>
+      <td class="source">param 00045</td>
+      <td class="num">0.76 in</td>
+      <td class="num peak">7.20 in</td>
+      <td class="num moderate">5.10 in</td>
+    </tr>
+    <tr class="section-header"><td colspan="5">COASTAL — NOAA KINGS POINT GAUGE (8516945)</td></tr>
+    <tr>
+      <td>Peak observed water level</td>
+      <td class="source">water_level</td>
+      <td class="num peak">14.31 ft MLLW<span class="timestamp">Oct 29 22:06</span></td>
+      <td class="num moderate">9.25 ft MLLW<span class="timestamp">Sep 1 21:06</span></td>
+      <td class="num">10.01 ft MLLW<span class="timestamp">Sep 29 12:12</span></td>
+    </tr>
+    <tr>
+      <td>Peak surge residual</td>
+      <td class="source">observed − predicted</td>
+      <td class="num peak">12.57 ft<span class="timestamp">Oct 29 19:00</span></td>
+      <td class="num">3.07 ft<span class="timestamp">Sep 2 03:36</span></td>
+      <td class="num">1.93 ft<span class="timestamp">Sep 29 18:12</span></td>
+    </tr>
+    <tr class="section-header"><td colspan="5">FLOOD MECHANISM</td></tr>
+    <tr>
+      <td>Primary damage vector</td>
+      <td class="source"></td>
+      <td class="num"><span class="badge badge-coastal">Coastal surge</span></td>
+      <td class="num"><span class="badge badge-riverine">Riverine flood</span></td>
+      <td class="num"><span class="badge badge-riverine">Riverine flood</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="footer">All data sourced directly from federal APIs — USGS NWIS and NOAA CO-OPS. Scripts reproducible against live federal data sources. Generated by Delaware Engineering, D.P.C.</p>
+
+</body>
+</html>
